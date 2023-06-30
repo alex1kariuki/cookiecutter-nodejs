@@ -1,0 +1,58 @@
+{
+  "name": "{{cookiecutter.repo_name}}",
+  "description": "{{cookiecutter.repo_description}}",
+  "version": "0.0.1",
+  "author": "{{cookiecutter.repo_author}}",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "node lib/index.js",
+    "start:example": "node --no-warnings example/index.js",
+    "build": "tsc",
+    "test": "jest index.test.ts",
+    "system:test": "jest index.system.test.ts",
+    "coverage": "jest --coverage index.test.ts",
+    "system:coverage": "jest --coverage index.system.test.ts",
+    "tslint": "tslint ./src/index.ts",
+    "prettier:base": "prettier",
+    "prettier:check": "yarn run prettier:base --list-different \"src/**/*.{ts,tsx}\"",
+    "prettier:write": "yarn run prettier:base --write \"src/**/*.{ts,tsx}\""
+  },
+  "dependencies": {
+    "swagger-ui-express": "^4.1.6",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4",
+    "winston": "^3.3.3",
+    "yamljs": "^0.3.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.14",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "axios": "^0.24.0",
+    "helmet": "^4.6.0",
+    "joi": "^17.4.2",
+    "xss-clean": "^0.1.1",
+    "moment": "^2.29.1",
+    "express-rate-limit": "^5.2.6",
+    "express-locale": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.1",
+    "@types/node": "^10.9.2",
+    "coveralls": "^3.0.2",
+    "husky": "^1.0.0-rc.13",
+    "jest": "^23.5.0",
+    "jest-junit": "^5.1.0",
+    "prettier": "^1.14.2",
+    "ts-jest": "^23.1.4",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "typescript": "^3.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn build && git add lib/"
+    }
+  }
+}
